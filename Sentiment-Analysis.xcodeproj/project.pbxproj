@@ -11,8 +11,8 @@
 		ED00563129C1F72B00C794EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED00563029C1F72B00C794EA /* ContentView.swift */; };
 		ED00563329C1F72D00C794EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED00563229C1F72D00C794EA /* Assets.xcassets */; };
 		ED00563629C1F72D00C794EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED00563529C1F72D00C794EA /* Preview Assets.xcassets */; };
-		ED00565429C203ED00C794EA /* twitter-sanders-apple3.csv in Resources */ = {isa = PBXBuildFile; fileRef = ED00565329C203EC00C794EA /* twitter-sanders-apple3.csv */; };
 		ED4B317829C8351E00FCEBA9 /* SentimentAnalysisModel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = ED4B317729C8351E00FCEBA9 /* SentimentAnalysisModel.mlmodel */; };
+		ED97CCB029C8AA1600B5D7FA /* SentimentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED97CCAF29C8AA1600B5D7FA /* SentimentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,8 +21,8 @@
 		ED00563029C1F72B00C794EA /* ContentView.swift */ = {isa = PBXFileReference; indentWidth = 9; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; tabWidth = 9; usesTabs = 0; };
 		ED00563229C1F72D00C794EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ED00563529C1F72D00C794EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ED00565329C203EC00C794EA /* twitter-sanders-apple3.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "twitter-sanders-apple3.csv"; sourceTree = "<group>"; };
 		ED4B317729C8351E00FCEBA9 /* SentimentAnalysisModel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentAnalysisModel.mlmodel; sourceTree = "<group>"; };
+		ED97CCAF29C8AA1600B5D7FA /* SentimentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentimentModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +39,6 @@
 		ED00562229C1F72B00C794EA = {
 			isa = PBXGroup;
 			children = (
-				ED00565329C203EC00C794EA /* twitter-sanders-apple3.csv */,
 				ED00562D29C1F72B00C794EA /* Sentiment-Analysis */,
 				ED00562C29C1F72B00C794EA /* Products */,
 			);
@@ -59,6 +58,7 @@
 				ED4B317729C8351E00FCEBA9 /* SentimentAnalysisModel.mlmodel */,
 				ED00562E29C1F72B00C794EA /* Sentiment_AnalysisApp.swift */,
 				ED00563029C1F72B00C794EA /* ContentView.swift */,
+				ED97CCAF29C8AA1600B5D7FA /* SentimentModel.swift */,
 				ED00563229C1F72D00C794EA /* Assets.xcassets */,
 				ED00563429C1F72D00C794EA /* Preview Content */,
 			);
@@ -132,7 +132,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED00563629C1F72D00C794EA /* Preview Assets.xcassets in Resources */,
-				ED00565429C203ED00C794EA /* twitter-sanders-apple3.csv in Resources */,
 				ED00563329C1F72D00C794EA /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +146,7 @@
 				ED00563129C1F72B00C794EA /* ContentView.swift in Sources */,
 				ED00562F29C1F72B00C794EA /* Sentiment_AnalysisApp.swift in Sources */,
 				ED4B317829C8351E00FCEBA9 /* SentimentAnalysisModel.mlmodel in Sources */,
+				ED97CCB029C8AA1600B5D7FA /* SentimentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,57 +8,57 @@
 import SwiftUI
 import CoreML
 
+// 다른 부분 탭 했을 때 키보드 가리기
+extension UIApplication {
+         func hideKeyboard() {
+                  guard let window = windows.first else {return}
+                  let tapRecognizer = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
+                  tapRecognizer.cancelsTouchesInView = false
+                  tapRecognizer.delegate = self
+                  window.addGestureRecognizer(tapRecognizer)
+         }
+}
+
+extension UIApplication: UIGestureRecognizerDelegate {
+         public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+                  return false
+         }
+}
+
 
 struct ContentView: View {
-         @State var targetText: String = ""
-         @State var label: String = ""
-         @State var sentimentDic: [String: Int] = ["Irrelevant" : 0,"Negative" : 0,"Neutral" : 0,"Positive" : 0]
+         @State var sentimentModel = SentimentModel()
+         @State private var targetText: String = ""
+         @State private var sentiment: SentimentModel.Sentiment = .basic
+         @State private var basicColor: String = "basic"
          var body: some View {
-                  VStack {
-                           TextEditor( text: $targetText)
-                                    .lineLimit(10)
-                                    .multilineTextAlignment(.leading)
-                                    .lineSpacing(20)
-                           Button {
-                                    label = predictSentiment(text: stringParsing(text: targetText))
-                           } label: {
-                                    Text("Predict")
+                  ZStack{
+                           Color(sentiment.rawValue).edgesIgnoringSafeArea(.all)
+                           VStack {
+                                    TextEditor(text: $targetText)
+                                             .cornerRadius(20)
+                                             .colorMultiply(.white)
+                                             .font(.title)
+                                             .lineLimit(10)
+                                             .multilineTextAlignment(.leading)
+                                             .lineSpacing(20)
+                                             .padding(.horizontal, 30)
+                                             .padding(.bottom, 50)
+                                    Spacer()
+                                    Button {
+                                             sentiment = sentimentModel.predictString(text: targetText)
+                                    } label: {
+                                             Text("Predict").font(.title2).padding()
+                                             
+                                    }
+                                    Text(sentimentModel.getEmoji(sentiment: sentiment))
+                                             .font(.system(size: 100))
+                                    Text(sentiment.rawValue != "basic" ? sentiment.rawValue : " ")
+                                    
                            }
-                           
-                           Text(label)
-                           
-                           
-                           
+                           .onAppear(perform: UIApplication.shared.hideKeyboard)
+                           .padding()
                   }
-                  .padding()
-         }
-         
-         func stringParsing(text: String) -> [String] {
-                  let stArray = text.split(separator: "\n")
-                  print(stArray.map { $0.description })
-                  return stArray.map { $0.description }
-         }
-         
-         func predictSentiment(text: [String]) -> String{
-                  sentimentDic = ["Irrelevant" : 0,"Negative" : 0,"Neutral" : 0,"Positive" : 0]
-                  let model = SentimentAnalysisModel()
-                  for t in text {
-                           guard let textSentimentAnalysisOutput = try? model.prediction(text: t) else{
-                                    fatalError("Loading CoreML Model Failed")
-                           }
-                           switch (textSentimentAnalysisOutput.label) {
-                                    case "Irrelevant": sentimentDic["Irrelevant"]! += 1
-                                    case "Negative": sentimentDic["Negative"]! += 1
-                                    case "Neutral": sentimentDic["Neutral"]! += 1
-                                    case "Positive": sentimentDic["Positive"]! += 1
-                                    default: break
-                           }
-                           
-                  }
-                  print(sentimentDic)
-                  
-                  
-                  return sentimentDic.sorted{$0.1>$1.1}[0].key
          }
 }
 
