@@ -3,11 +3,10 @@
 ## **CreateML**과 **CoreML API**를 활용한 감정 분석 어플
 ### 1. 데이터 수집 및 전처리
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c562f5d3-1a44-486a-b569-6b4da52512ec/Untitled.png)
-
+![image](https://github.com/sumin305/Sentiment-Analysis-with-CreateML/assets/110437548/02b1749d-3111-4b45-a444-752929ec0b2c)
 ### 2. CreateML 인터페이스를 활용하여 모델 생성 및 학습
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/739b2ccd-c92a-4635-9572-121a033efcee/Untitled.png)
+![image](https://github.com/sumin305/Sentiment-Analysis-with-CreateML/assets/110437548/9288bc7d-4842-446e-a290-998d717df028)
 
 ### 3. CoreML로 앱에 적용
 
